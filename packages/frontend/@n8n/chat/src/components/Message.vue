@@ -109,7 +109,7 @@ onMounted(async () => {
 			<slot name="beforeMessage" v-bind="{ message }" />
 		</div>
 		<slot>
-			<template v-if="message.type === 'component' && messageComponents[message.key]">
+			<template v-if="message.type === 'component' && message.key in messageComponents">
 				<component :is="messageComponents[message.key]" v-bind="message.arguments" />
 			</template>
 			<VueMarkdown
